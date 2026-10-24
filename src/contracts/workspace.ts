@@ -1,0 +1,197 @@
+export type Membership = {
+  id: string;
+  role: 'officer' | 'supervisor' | 'regional_reader' | 'senior_reader' | 'admin';
+  bureau: string | null;
+  region: string | null;
+};
+export type Institution = {
+  id: string;
+  name: string;
+  permanent_id: string;
+  address: string;
+  city: string;
+  region: string;
+  source_updated_at: string;
+};
+export type Officer = { id: string; name: string; bureau: string; role: string };
+export type CaseRecord = {
+  id: string;
+  case_no: string;
+  institution_id: string | null;
+  institution_name: string | null;
+  permanent_id: string | null;
+  source_institution: string;
+  source_permanent_id: string | null;
+  source_city: string | null;
+  region: string | null;
+  city: string | null;
+  title: string;
+  category: string;
+  bureau: string;
+  officer_id: string;
+  officer_name: string | null;
+  status: string;
+  received_at: string;
+  expected_disposal_at: string;
+  original_deadline: string;
+  next_action: string;
+  last_action: string;
+  last_action_at: string;
+  source_updated_at: string;
+  identity_state: string;
+  version: number;
+  has_overlap: boolean;
+  overdue: boolean;
+  due_soon: boolean;
+};
+export type CaseEvent = {
+  id: string;
+  case_id: string;
+  case_no?: string;
+  action: string;
+  actor_name: string | null;
+  bureau: string;
+  occurred_at: string;
+  case_version: number;
+  remarks: string | null;
+  from_status: string | null;
+  to_status: string | null;
+};
+export type CaseDetail = CaseRecord & {
+  description: string | null;
+  can_read_content: boolean;
+  events: CaseEvent[];
+  institution_cases: CaseRecord[];
+};
+export type WorkspaceData = {
+  profile: { id: string; name: string; email: string };
+  memberships: Membership[];
+  institutions: Institution[];
+  officers: Officer[];
+  stats: Record<string, number>;
+  workload: { bureau: string; active: number; disposed: number; overdue: number }[];
+  recent_events: CaseEvent[];
+  source_updated_at: string | null;
+  as_of: string;
+};
+export type CaseList = {
+  rows: CaseRecord[];
+  total: number;
+  page: number;
+  page_size: number;
+  as_of: string;
+};
+export type WorkRequest = {
+  id: string;
+  case_id: string;
+  case_no: string;
+  institution_id: string;
+  institution_name: string;
+  bureau: string;
+  document: string;
+  purpose: string;
+  period: string;
+  status: string;
+  created_at: string;
+  version: number;
+};
+export type Proposal = {
+  id: string;
+  source_request_id: string;
+  target_request_id: string;
+  source_case_id: string;
+  target_case_id: string;
+  source_case_no: string;
+  target_case_no: string;
+  source_bureau: string;
+  target_bureau: string;
+  status: string;
+  document: string;
+  purpose: string;
+  period: string;
+  institution_name: string;
+  proposed_at: string;
+  response_reason: string | null;
+};
+export type CoordinationData = {
+  requests: WorkRequest[];
+  proposals: Proposal[];
+  links: { id: string; source_case_id: string; target_case_id: string; relationship: string }[];
+  as_of: string;
+};
+export type AlertData = {
+  alerts: {
+    id: string;
+    case_id: string;
+    case_no: string;
+    title: string;
+    bureau: string;
+    institution_name: string;
+    kind: string;
+    deadline: string;
+    created_at: string;
+    acknowledged_at: string | null;
+  }[];
+  overlap_institutions: {
+    institution_id: string;
+    institution_name: string;
+    permanent_id: string;
+    region: string;
+    bureaus: string[];
+    active_cases: number;
+  }[];
+  job: { last_completed_at: string; processed_count: number } | null;
+  as_of: string;
+};
+export type ReportData = {
+  total: number;
+  disposed: number;
+  disposal_rate: number | null;
+  overlap_cases: number;
+  identity_review: number;
+  dimensions: {
+    dimension: string;
+    label: string;
+    received: number;
+    active: number;
+    disposed: number;
+    overdue: number;
+  }[];
+  ageing: { label: string; count: number }[];
+  period_events: { transfers: number; escalations: number; disposals: number };
+  definition: string;
+  as_of: string;
+};
+export type TimelineEvent = {
+  id: string;
+  case_id: string;
+  case_no: string;
+  title: string;
+  action: string;
+  bureau: string;
+  from_status: string | null;
+  to_status: string | null;
+  occurred_at: string;
+  case_version: number;
+  actor_name: string | null;
+};
+export type InstitutionTimeline = { events: TimelineEvent[]; as_of: string };
+export type Notification = {
+  id: string;
+  kind: 'overdue' | 'due_soon' | 'pending' | 'escalated' | 'overlap' | 'coordination' | 'transfer';
+  case_id: string | null;
+  institution_id: string | null;
+  title: string;
+  body: string;
+  created_at: string;
+  read_at: string | null;
+  emailed: boolean;
+};
+export type NotificationFeed = {
+  items: Notification[];
+  unread: number;
+  by_kind: Partial<Record<Notification['kind'], number>>;
+  email_alerts: boolean;
+  as_of: string;
+};
+export type InstitutionMatch = { institution: Institution; score: number; reasons: string[] };
