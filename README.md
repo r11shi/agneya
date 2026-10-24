@@ -4,13 +4,13 @@
 
 **One view of every complaint about an institution, across AICTE bureaus and cells.**
 
-[**Live app →**](https://casebridge-4kjs.onrender.com) &nbsp;·&nbsp; [**Demo video →**](https://drive.google.com/file/d/1kZDT6RYlwRRCFx0PylTfTshgDqcKPWVV/view?usp=drivesdk)
+[**Demo video →**](https://drive.google.com/file/d/1kZDT6RYlwRRCFx0PylTfTshgDqcKPWVV/view?usp=drivesdk)
 
 ![Walkthrough](docs/demo.gif)
 
 </div>
 
-**Try it:** open the live app (synthetic data only). Demo credentials are shared privately with evaluators; email rushicodes0@gmail.com. The free host may take ~30 s to wake up.
+**Try it:** a live demo is shared privately with evaluators; email rushicodes0@gmail.com.
 
 ## What it does
 - Tracks every complaint with an owner, status, next action and deadline.
@@ -32,7 +32,7 @@ Next.js · React · TypeScript · PostgreSQL with row-level security · Better A
 | `src/app` | Layout, design tokens and styles |
 | `docs` | Diagrams and screenshots |
 
-**Not published:** the server, authentication, database schema and policies, overlap and alert logic, institution matching and tests. The code here typechecks (`npm install && npm run typecheck`) but does not run as a full app; use the live link. Evaluators can request read-only access to the complete implementation.
+**Not published:** the server, authentication, database schema and policies, overlap and alert logic, institution matching and tests. The code here typechecks (`npm install && npm run typecheck`) but does not run as a full app. Evaluators can request read-only access to the complete implementation.
 
 ## Screenshots
 | | |
@@ -40,9 +40,9 @@ Next.js · React · TypeScript · PostgreSQL with row-level security · Better A
 | ![Overview](docs/screenshots/overview.jpg) | ![Case page](docs/screenshots/case-page.jpg) |
 
 ## No scraping, crawling or AI training
-This repository and the live application are published **only for evaluation**.
+This repository is published **only for evaluation**.
 
-Automated access is **not permitted** without our express written permission. This includes crawlers, scrapers, bots, spiders, and use as training data for AI or machine-learning models. The same applies to the live application.
+Automated access is **not permitted** without our express written permission. This includes crawlers, scrapers, bots, spiders, and use as training data for AI or machine-learning models.
 
 ```
 User-agent: *
