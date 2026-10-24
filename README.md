@@ -4,7 +4,7 @@
 
 **One view of every complaint about an institution, across AICTE bureaus and cells.**
 
-[**Live app →**](https://casebridge-4kjs.onrender.com) &nbsp;·&nbsp; Demo video: [VIDEO_URL]
+[**Live app →**](https://casebridge-4kjs.onrender.com) &nbsp;·&nbsp; [**Demo video →**](https://drive.google.com/file/d/1kZDT6RYlwRRCFx0PylTfTshgDqcKPWVV/view?usp=drivesdk)
 
 ![Walkthrough](docs/demo.gif)
 
@@ -52,4 +52,4 @@ Disallow: /
 ## Copyright
 © 2026 Team AGNEYA. All rights reserved. No licence is granted; you may not copy, modify, redistribute or reuse this work. See [COPYRIGHT.md](COPYRIGHT.md).
 
-**Team AGNEYA** · Rushi Maddewad and team · [CONTACT_EMAIL]
+**Team AGNEYA** · Rushi Maddewad and team · [rushicodes0@gmail.com](mailto:rushicodes0@gmail.com)
