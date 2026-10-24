@@ -38,7 +38,6 @@ const accounts = [
     'Settings, no complaint text',
   ],
 ] as const;
-const demoPassword = 'Casebridge-demo-2026!';
 const initials = (name: string) =>
   name
     .split(' ')
@@ -100,7 +99,11 @@ export function Login({ demo }: { demo: boolean }) {
                       className="role-row"
                       disabled={!ready || !!busy}
                       aria-busy={busy === value}
-                      onClick={() => void signIn(value, demoPassword)}
+                      onClick={() => {
+                        setEmail(value);
+                        setError('');
+                        document.getElementById('login-password')?.focus();
+                      }}
                     >
                       <span className="avatar">{initials(name)}</span>
                       <span className="role-text">
@@ -151,6 +154,7 @@ export function Login({ demo }: { demo: boolean }) {
                 <input
                   type={show ? 'text' : 'password'}
                   required
+                  id="login-password"
                   autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -181,7 +185,7 @@ export function Login({ demo }: { demo: boolean }) {
           </form>
           <p className="auth-foot">
             {demo
-              ? `Every demo role uses the password ${demoPassword}. Records are synthetic.`
+              ? 'Pick a role to fill its email, then enter the password your team shared with you. Records are synthetic.'
               : 'Access is limited to approved officials. Ask your administrator for a membership.'}
           </p>
         </section>

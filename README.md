@@ -10,7 +10,7 @@
 
 </div>
 
-**Try it:** open the live app and click any role on the sign-in page (synthetic data only). Manual sign-in: `ananya.pgrc@demo.casebridge.test` / `Casebridge-demo-2026!`. The free host may take ~30 s to wake up.
+**Try it:** open the live app (synthetic data only). Demo credentials are shared privately with evaluators; email rushicodes0@gmail.com. The free host may take ~30 s to wake up.
 
 ## What it does
 - Tracks every complaint with an owner, status, next action and deadline.
